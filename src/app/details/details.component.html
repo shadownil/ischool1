@@ -1,0 +1,199 @@
+   <!-- NIVIGATIONBAR --> 
+
+<nav class="navbar navbar-expand  bg-light-white " style="min-height: 80px; ">
+  <div class="container-fluid">
+      <ul class="navbar-nav d-none d-md-flex mr-auto">
+      <li style="margin-left: 50px;" class="nav-item"><a class="nav-link" href="#" data-abc="true"><h1 class="abc" ><img src="./assets/iSchoolConnect-logo.svg" alt=""></h1></a></li>
+   
+      </ul>
+      <ul style="padding-right: 50px;" class="navbar-nav d-flex align-items-center">
+         
+      
+      <b><li class="nav-item"><a class="nav-link" href="#" data-abc="true">Forum</a></li></b>
+      <b><li class="nav-item"><a class="nav-link" href="#" data-abc="true">Blog</a></li></b>
+
+      <b><li class="nav-item"><a class="nav-link" href="#" data-abc="true">About US</a></li></b>
+
+      <b><li class="nav-item"><a class="nav-link" href="#" data-abc="true">Plan</a></li><li class="nav-item"></b>
+      <b><li class="nav-item"><a class="nav-link" href="#" data-abc="true">Log in</a></li></b>
+      <li class="nav-item">
+        <div class="d-flex flex-row">
+          <button mat-raised-button color="primary">Register</button>
+        </div>
+    </li>
+    </ul> 
+    </div> 
+  
+  </nav>
+  <div style="background-color: aliceblue;">
+                                  <!-- header -->
+
+
+    
+
+  <section class="header-main border-bottom " style="background-color: aliceblue;">
+    <div class="container-fluid" >
+         <div class="row p-2 pt-3 pb-3 d-flex align-items-center">
+
+             
+             <div class="col-md-8" style="margin-left: 200px ;">
+              <div style="display: flex;"> 
+                <mat-icon >home</mat-icon>
+                <h3> > explore school</h3>
+              </div>
+          <div class="d-flex form-inputs">
+          <input class="form-control" type="text" placeholder="Search any product...">
+          
+          <i class="bx bx-search"></i>
+          </div>
+             </div>
+             
+             <div class="col-md-2">
+                 <div class="d-flex d-none d-md-flex flex-row align-items-center">
+                     <span class="shop-bag"><i class='bx bxs-shopping-bag'></i></span>
+                        
+                 </div>           
+             </div>
+         </div>
+    </div> 
+    <div >
+      <small style="margin-left: 220px;"> You found <b>{{Data.length}} </b>outof <b>{{total.length}} </b>University</small>
+    </div>
+  </section>
+  <div class="s">
+    <button mat-stroked-button>Best Match</button>
+    <button mat-stroked-button>Best Rank</button>
+    <button mat-stroked-button>Acceptance Rate</button>
+    <button mat-stroked-button>Tutuon Fee</button>
+    
+    
+  </div>
+
+<div >
+                                 <!-- SEARCH SECTION FOR CONTRY AND  DEGREE -->
+<div class="flex-container" style="align-self: auto;" >
+  <div>
+    <h1  style="margin-left: 270px;margin-top: 50px;">Country</h1>
+  <div class="scroll-div">
+    <div class="scroll-object">
+  <div style="margin-left: 250px;">
+   
+    
+    <ul *ngFor=" let checkboxarrays of checkboxArray">
+      
+      <li>
+   <input type="checkbox" value="{{checkboxarrays.country }}" (change)="onChange($event)"> {{checkboxarrays.country}}
+  </li>
+</ul>
+  </div></div>
+  
+</div>
+<br>
+<hr style="margin-left: 150px;">
+<br >
+<h1  style="margin-left: 270px;margin-top: 50px;">Degrees</h1>
+<div class="scroll-div">
+  <div class="scroll-object">
+<div style="margin-left: 250px; ">
+  
+  
+  <ul *ngFor=" let checkboxarrays of checkboxArray">
+    
+    <li>
+ <input type="checkbox" value="{{checkboxarrays.Degree}}" (change)="onChanges($event)"> {{checkboxarrays.Degree}}
+</li>
+</ul>
+</div></div>
+
+</div>
+
+</div>
+
+
+
+<div >
+
+                          <!-- ALL DATA REGARDING UNIVERSITY -->
+<mat-card class="example-card" *ngFor="let value of Data | paginate: { itemsPerPage: 3, currentPage: p }" >
+    <mat-card-header>
+      <div mat-card-avatar style="background-image: url('{{value.image}}');background-size: cover;" ></div>
+      <mat-card-title>{{value.University}}</mat-card-title>
+      <mat-card-subtitle align="start" ><mat-icon style="font-size: 20px; color: gray;" >room</mat-icon> {{value.location}}  <mat-icon style="font-size: 20px; color: gray;">fiber_manual_record</mat-icon>{{value.country}} 
+      
+    <div class="row">
+      <mat-icon >stars</mat-icon>
+        <h3  class="col-md-8 mb-4">{{value.isc}} <br>iSC Rank </h3> 
+        <h4 class="col-md-2 mb-2">{{value.Acceptance}} <br> Acceptance Rate:</h4>
+    </div>
+    </mat-card-subtitle>
+    
+     
+ 
+     
+    </mat-card-header>   
+    <mat-card-content  style="margin-left: 50px;">
+        <mat-card class="insidecard" style="background-color: hsl(210, 33%, 94%);" >
+            <mat-card-header>
+              <mat-card-title>{{value.Displine}}</mat-card-title>
+              <mat-card-subtitle></mat-card-subtitle>
+              
+            </mat-card-header>
+            <br>
+            <mat-card-content>
+                <div class="flex-container">
+                    <mat-icon >account_balance</mat-icon><h3 >Main</h3>
+                     <button style="margin-left: 170px;" mat-stroked-button> <mat-icon  >favorite</mat-icon>Add to Favorites</button>
+                     <button style="margin-left: 25px;" mat-flat-button color="primary">Accent</button>
+
+                </div><br>
+            <div class="flex-container">
+              <mat-icon >school</mat-icon>
+                <h3 style="margin-left: 25px;">{{value.Degree}}</h3>
+                 <h3 style="margin-left: 25px;">{{value.fees}}</h3>
+                  <h3 style="margin-left: 25px;">{{value.tenure}}</h3>
+            </div>
+
+            </mat-card-content>
+
+           
+          </mat-card>
+          <br>
+          <mat-card style="background-color: hsl(210, 33%, 94%);">
+            <mat-card-header>
+              <mat-card-title>{{value.Displines}}</mat-card-title>
+              <mat-card-subtitle></mat-card-subtitle>
+              
+            </mat-card-header>
+            <br>
+            <mat-card-content>
+                <div class="flex-container">
+                  <mat-icon>account_balance</mat-icon><h3 >Main</h3>
+                     <button style="margin-left: 170px;" mat-stroked-button> <mat-icon>favorite</mat-icon>Add to Favorites</button>
+                     <button style="margin-left: 25px;" mat-flat-button color="primary">Accent</button>
+
+                </div><br>
+            <div class="flex-container">
+              <mat-icon>school</mat-icon>
+                <h3 style="margin-left: 25px;">{{value.Degree}}</h3>
+                 <h3 style="margin-left: 25px;">{{value.fees}}</h3>
+                  <h3 style="margin-left: 25px;">{{value.tenure}}</h3>
+            </div>
+
+            </mat-card-content>
+
+           
+          </mat-card>
+          
+    </mat-card-content>
+    <span> &nbsp; </span>
+  </mat-card>
+  <pagination-controls (pageChange)="p = $event" class="float-right"></pagination-controls>
+  
+</div>
+</div>
+</div>
+
+
+
+
+  
